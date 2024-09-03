@@ -15,43 +15,26 @@ public:
     }
 };
 
-void preorder(Node *root)
+void level_order(Node *root)
 {
-    // base case
-    if (root == NULL)
+    queue<Node *> q;
+    q.push(root);
+
+    while (!q.empty())
     {
-        return;
+        // 1.
+        Node *f = q.front();
+        q.pop();
+
+        // 2.
+        cout << f->val << " ";
+
+        // 3.
+        if (f->left)
+            q.push(f->left);
+        if (f->right)
+            q.push(f->right);
     }
-
-    cout << root->val << " ";
-    preorder(root->left);
-    preorder(root->right);
-}
-
-void postorder(Node *root)
-{
-    // base case
-    if (root == NULL)
-    {
-        return;
-    }
-
-    preorder(root->left);
-    preorder(root->right);
-    cout << root->val << " ";
-}
-
-void inorder(Node *root)
-{
-    // base case
-    if (root == NULL)
-    {
-        return;
-    }
-
-    inorder(root->left);
-    cout << root->val << " ";
-    inorder(root->right);
 }
 
 int main()
