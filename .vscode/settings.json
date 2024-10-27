@@ -3,6 +3,8 @@
         "*.embeddedhtml": "html",
         "queue": "cpp",
         "iostream": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "vector": "cpp",
+        "iosfwd": "cpp"
     }
 }

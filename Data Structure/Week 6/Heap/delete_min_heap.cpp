@@ -1,8 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+void print_heap(vector<int> v);
+void insert_heap(vector<int> &v, int x);
+void delete_heap(vector<int> &v);
+
 void insert_heap(vector<int> &v, int x)
 {
+    if (v.empty())
+    {
+        cout << "Empty" << endl;
+    }
+    else
+    {
+        print_heap(v);
+    }
     v.push_back(x);
     int cur_idx = v.size() - 1;
     while (cur_idx != 0)
@@ -88,7 +100,7 @@ void print_heap(vector<int> v)
 int main()
 {
     vector<int> v;
-    int n;
+    int n, t;
     cin >> n;
     for (int i = 0; i < n; i++)
     {
@@ -96,8 +108,33 @@ int main()
         cin >> x;
         insert_heap(v, x);
     }
-    delete_heap(v);
-    print_heap(v);
+    cin >> t;
+    while (t--)
+    {
+        int c;
+        cin >> c;
+        if (c == 0)
+        {
+            int x;
+            cin >> x;
+            insert_heap(v, x);
+        }
+        else if (c == 1)
+        {
+            if (v.empty())
+            {
+                cout << "Empty" << endl;
+            }
+            else
+            {
+                print_heap(v);
+            }
+        }
+        else if (c == 2)
+        {
+            delete_heap(v);
+        }
+    }
 
     return 0;
 }
