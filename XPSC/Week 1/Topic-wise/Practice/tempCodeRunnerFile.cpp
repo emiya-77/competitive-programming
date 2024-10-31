@@ -1,0 +1,1 @@
+cout<<get<0>(student)<<" "<<get<1>(student)<<" "<<get<2>(student)<<'\n';
